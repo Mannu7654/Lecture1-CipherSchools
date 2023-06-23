@@ -1,0 +1,51 @@
+//   Function Overloading
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/* In function overloading, check these condition
+      1. Same name of function
+      2. Either diff types of parameters or
+          diff number of parameters.
+*/
+
+int maximum(int a,int b)
+{
+	if(a>b)
+	{
+		return a;
+	}
+	else
+	{
+		return b;
+	}
+}
+
+double maximum(double a, double b, double c)
+{
+	if(a>b)
+	{
+		if(a>c)return a;
+		return c;
+	}
+	else
+	{
+		if(b>c) return b;
+		return c;
+	}
+}
+
+int maximum(int a, int b, int c, int d)
+{
+	int m =maximum(a,b);
+	int n =maximum(c,d);
+	
+	return maximum(m,n);
+}
+
+int main()
+{
+	cout<<maximum(2,5)<<"\n";
+	cout<<maximum(2,5.5,3)<<"\n";
+	cout<<maximum(2,5,3,8)<<"\n";
+}
