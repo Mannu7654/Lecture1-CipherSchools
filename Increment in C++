@@ -1,0 +1,44 @@
+// increment in a variable by using value, Pointer, address(reference)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/*
+// pass by value
+
+void increment(int a)
+{
+	a++;
+	cout<<a;
+}
+
+// pass by pointer
+
+void increment(int *a)
+{
+	(*a)++;
+	cout<<*a;
+}
+*/
+
+//  pass by address(reference)
+
+void increment(int &a)
+{
+    a++;
+	cout<<a;
+}
+
+// main class
+
+int main()
+{
+	int m=51;
+	int &n=m;    // In this m and n having same memory block 
+	n++;
+	
+//	increment(m);  // pass the value
+//	increment(&m);  // pass by pointer
+	increment(m);   // pass by references
+
+}
