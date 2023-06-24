@@ -1,0 +1,39 @@
+//  Pointer in C++
+// In pointer, the address is always in hexadecimal number for all data types 
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int a=10;
+	int *p= &a;
+	
+	cout<<*(&a)<<endl;     //  10
+	cout<<*p<<endl;       // 10
+	
+	cout<<sizeof(p)<<endl;  // the size of pointer is depends upon the Operatic system
+	//  64-bits OS having size of pointer == 8 bytes
+	
+	char ch='a';
+	char * pch = &ch;
+	
+	if(sizeof(pch) == sizeof(p))
+	{
+		cout<<"hey"<<"\n";
+		
+	}
+	else
+	{
+		cout<<"hi";
+	}
+	
+/*	
+	int b=10;
+	
+	int c = &b;  // this give error because invalid conversion
+	//  Hexadecimal is not in a integer type
+	
+	cout<<c;
+*/	
+	
+}
