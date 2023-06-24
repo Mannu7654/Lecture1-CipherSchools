@@ -1,0 +1,92 @@
+//  Recursion in c++
+//  Recursion: function calling itself. It makes code shorter and essier to understand
+//  Easy to write as compare to lterative function
+//  1. Base case  
+//  2. Assumption
+//  3. Calculation
+// Time complexity : O(n)
+
+/*
+// 1st Program : -- find the power of a number
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int power(int base, int pow)
+{
+	if(pow == 0)
+	{
+		return 1;
+	}
+	int smlAns=power(base,pow-1);
+	
+	return smlAns * base;
+}
+
+int main()
+{
+	int num,powe;
+	cin>>num>>powe;
+	
+	cout<<"Solution is : "<<power(num,powe);
+	
+	return 0;
+}
+
+
+// 2nd program : -- Factorial of any number
+
+#include<iostream>
+using namespace std;
+
+int factroial(int n)
+{
+	if(n==0)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*factroial(n-1);
+	}
+}
+int main()
+{
+	int num;
+	cout<<"Enter a number : "<<endl;
+	cin>>num;
+	
+	cout<<"Factroial of a number : "<<factroial(num);
+}
+
+*/
+
+//  3rd program : -- Find the fibonacci series
+
+#include<iostream>
+using namespace std;
+
+int fibonacci(int n)
+{
+    if(n<=1)
+    {
+        return n;
+    }
+    
+    return fibonacci(n-1)+fibonacci(n-2);
+
+}
+
+int main()
+{
+  int x , i=0;
+  
+   cout << "Enter the total element in a series : ";
+   cin >> x;
+
+   while(i <= x) {
+      cout<< fibonacci(i)<<"\t";
+      i++;
+   }
+   return 0;
+}
