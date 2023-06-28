@@ -1,0 +1,81 @@
+// Class And Objects Code Practice in C++ [ Constructor and its type ]
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class student
+{
+	string passcode;
+	public:
+		string name;
+		int id;
+// constructor always declared/ defined in "public" modifier. 		
+// constructor having no return type. It is automatically called when object is created.		
+// default constructor	
+	
+	student()
+	{	
+	}
+	
+//  Parameterize constructor : it is used to overload the constructor
+		
+	student(string passcode,string name,int id)
+	{
+//  this keyword is represents the current object which is called by the construtor
+		this->name=name;
+		this->id=id;
+		this->passcode=passcode;
+	}
+	
+//  Another way to create a constructor without using 'this' keyword 
+	student(string passcode,string name,int id): name(name),passcode(passcode),id(id)
+	{	
+	}
+		
+	void into()
+	{
+		cout<<"My name is : "<<name<<", Registration no. is : "<<id<<", Passcode : "<<passcode<<endl;
+		
+	}
+	
+	void setPass(string s)
+	{
+		passcode=s;
+	}
+};
+
+int main()
+{
+	student s1;
+	student s2("51","Mannu",12204749);
+	student s3;
+	
+	s3=s2;	
+	s3.into();
+	
+	
+//	student *ptrs = &s2;
+//	
+//	cout<<(*ptrs).name<<endl;
+//	cout<<ptrs->name<<endl;
+	
+	
+/*  	
+	int a=10;
+	int *ptri=&a;
+	student *ptrs = &s2;
+	
+	// if we remove sizeof() in this expression 
+	// then it gives error.
+	if(sizeof(ptri) == sizeof(ptrs))
+	{
+		cout<<"true"<<endl;   // output : true
+	}
+	else
+	{
+		cout<<"false"<<endl;
+	}
+*/
+
+
+}
