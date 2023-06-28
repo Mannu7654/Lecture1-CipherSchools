@@ -1,0 +1,75 @@
+//   Class and Object concept in C++
+#include<iostream>
+using namespace std;
+
+
+class student
+{
+// By default, Access modifier =>  Private
+	string passcode;
+	
+//  Friend class making by using friend keyword
+	friend class bestfriend;
+//  Protected --> is access only inside the class
+	protected:
+	    int age;
+//  Public --> is access all over the program	
+	public:	
+	    string name;
+	    int id;
+	    
+	void into()
+	{
+		cout<<"My name is : "<<name<<", Registration no. is : "<<id<<", Passcode : "<<passcode<<endl;
+		
+	}
+	
+	void setPass(string s, int a)
+	{
+		passcode=s;
+		age=a;
+	}
+
+//  friend function is created
+
+	friend void hacker(student s);
+
+};
+
+
+void hacker(student s)
+{
+	cout<<s.passcode<<" "<<s.age<<endl;
+}
+
+
+class bestfriend
+{
+	public:
+		
+	void sharingSecret(student s)
+	{
+		cout<<s.passcode<<"\t"<<s.age<<endl;
+
+		//  \t --> it takes 4 tab space.
+	}
+};
+
+
+int main()
+{
+	student s1;  //  memory allocated in 1 bytes
+	s1.name="Mannu Kumar";
+	s1.id=12204749;
+	s1.into();
+	s1.setPass("51", 22);
+
+//  friend class calling
+
+	bestfriend bff;
+	bff.sharingSecret(s1);
+
+//  Friend function calling
+
+	hacker(s1);
+}
