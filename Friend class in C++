@@ -1,0 +1,65 @@
+//  Friend class in c++
+
+#include<iostream>
+using namespace std;
+
+
+class student
+{
+	string passcode;
+	
+	friend class bestfriend;
+
+	protected:
+	    int age;
+	    
+	public:	
+	    string name;
+	    int id;
+	    
+	void into()
+	{
+		cout<<"My name is : "<<name<<", Registration no. is : "<<id<<", Passcode : "<<passcode<<", Age : "<<age<<endl;		
+	}
+	
+	void setter(string s, int a, string n,int i)
+	{
+		passcode=s;
+		age=a;
+		name=n;
+		id=i;
+	}
+	
+	friend void hacker(student s);
+
+};
+
+void hacker(student s)
+{
+	cout<<s.passcode<<" "<<s.age<<endl;
+}
+
+class bestfriend
+{
+	public:
+		
+	void sharingSecret(student s)
+	{
+		cout<<s.passcode<<"\t"<<s.age<<endl;
+		//  \t --> it takes 4 tab space.
+	}
+};
+
+
+int main()
+{
+	student s1;  //  memory allocated in 1 bytes
+
+	s1.setter("51", 22,"Mannu Kumar", 12204749);
+	s1.into();
+	
+	bestfriend bff;
+//	bff.sharingSecret(s1);
+	
+	hacker(s1);
+}
