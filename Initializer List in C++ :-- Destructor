@@ -1,0 +1,86 @@
+
+// Initializer List in C++ Destructor
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class student
+{
+	string passcode;
+	public:
+		string name;
+		int id;
+// constructor always declared/ defined in "public" modifier. 		
+// constructor having no return type. It is automatically called when object is created.		
+// default constructor	
+	
+	student()
+	{	
+	}
+	
+//  Parameterize constructor : it is used to overload the constructor
+		
+	student(string passcode,string name,int id)
+	{
+//  this keyword is represents the current object which is called by the construtor
+		this->name=name;
+		this->id=id;
+		this->passcode=passcode;
+	}
+		
+	void into()
+	{
+		cout<<"My name is : "<<name<<", Registration no. is : "<<id<<", Passcode : "<<passcode<<endl;
+		
+	}
+	
+	void setPass(string s)
+	{
+		passcode=s;
+	}
+
+// Distructor is deallocated the memory (delete the object)
+// It is called automatically when the function is ends.
+//  It having no parameter.
+// A class having only one destructor.
+	~student()
+	{
+		
+	}
+};
+
+
+//  Problem Question 
+
+int i;
+
+class A
+{
+	public:
+		~A()
+		{
+			i=10;
+		}
+};
+
+int foo()
+{
+	i=3;
+	A obj;
+	return i;
+}
+
+int main()
+{
+/*
+	student s1;
+	student s2("51","Mannu",12204749);
+	student s3;
+	
+	s3=s2;	
+	s3.into();
+*/
+
+    cout<<foo()<<endl;
+		
+}
