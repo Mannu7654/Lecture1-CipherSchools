@@ -1,0 +1,118 @@
+//  Type Conversion : --
+//                     1. class to basic 
+//                     2. class to class
+
+
+//    Class to Basic
+
+/*
+#include<iostream>
+using namespace std;
+
+class Time
+{
+	protected:
+		int hour;
+		int m;
+		
+	public:
+		
+	Time(int mins)
+	{
+		hour =mins/60;
+		m=mins% 60;
+	}
+	
+	void display()
+	{
+		cout<<"the time is "<<hour<<" hours and "<<m<<" mins"<<endl;
+	}
+	
+//  It have no any argument because it is a uniary operator
+ 
+	operator int()    // conversion function
+	{
+		return (this->hour * 60) + m;
+	}
+};
+
+int main()
+{
+	Time t(340);
+	
+	t.display();
+	
+	int time_to_min =(int)t;
+	
+	cout<<"time in mins is "<<time_to_min<<endl;
+}
+
+*/
+
+
+// Type Conversion : -- Class to class
+
+#include<iostream>
+using namespace std;
+
+class uk{
+	public:
+		int kms;
+		int mts;
+		
+	void display()
+	{
+		cout<<kms<<" km and "<<mts<<" mts"<<endl;
+	}
+};
+
+class us{
+	public:
+		int miles;
+		int feet;
+		
+	us(int m, int f)
+	{
+		miles= m;
+		feet=f;
+	}
+
+//  copy constructor 
+
+	us(uk obj)
+	{
+	   miles=obj.kms/1.6;
+	   feet = obj.mts /0.3;	
+	}
+	
+	void display()
+	{
+		cout<<miles<<" miles and "<<feet<<" feet"<<endl;
+	}
+	
+	operator uk()
+	{
+		uk duk;
+		
+		duk.kms= miles * 1.6;
+		duk.mts= feet * 0.3;
+		
+		return duk;
+	}
+};
+
+int main()
+{
+	us dus(5,10);
+	uk duk;
+	
+	duk= (uk)dus;
+	
+	duk.display();
+	
+	us dus2= duk; // both having same output
+	us dus3(duk);
+	
+	dus3.display();
+	dus2.display();
+}
