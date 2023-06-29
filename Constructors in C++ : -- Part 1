@@ -1,0 +1,86 @@
+//  Constructor in C++ :-- Operator overloading
+//  Complex Number Program
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class complexNumber
+{
+	public:
+		int real;
+		int img;
+		
+	complexNumber(int real, int img)
+	{
+		this->real=real;
+		this->img=img;
+	}
+	
+	void display()
+	{
+		cout<<real<<" + "<<img<<"i"<<endl;
+	}
+	
+	complexNumber plus(complexNumber c)
+	{
+		int r= this->real + c.real;
+		int i= this->img + c.img;
+		
+		complexNumber result(r,i);
+		return result;
+	}
+	
+	complexNumber multiply(complexNumber c)
+	{
+		int x= this->real *c.real;
+		int y= this->real *c.img;
+		int z= this->img *c.real;
+		int a= this->img *c.img;
+		
+		return complexNumber(x-a,y+z);
+	}
+	
+	
+// In operator overloading, return type operator + () { define the brhavoir}
+    
+    complexNumber operator + (complexNumber c)
+    {
+    	int r= this->real + c.real;
+    	int i= this->img + c.img;
+    	
+    	return complexNumber(r,i);
+	}
+	
+// Void operator overloading
+	
+	void operator ++ ()
+	{
+		this->real +=1;
+		this->img+=1;
+		
+		return;
+	}
+	
+// These are some operator that can not be overload : --
+// 1. member pointer selector (.*)
+// 2. ternary Operator (?:)
+// 3. scope resolution operator (::)	
+};
+
+int main()
+{
+	complexNumber c1(5,5);
+	complexNumber c2(1,6);
+	complexNumber c4(2,2);
+	complexNumber c3 = c1.plus(c2.plus(c4));
+	
+	++c2;      // increment the value by 1 of both real and imaginary part
+//   Output : ---  2 + 7i 
+
+	c2.display();
+    
+//	complexNumber c5 = c1 + c2;
+//	
+//	c5.display();
+}
