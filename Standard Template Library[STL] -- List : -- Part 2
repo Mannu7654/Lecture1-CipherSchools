@@ -1,0 +1,51 @@
+//                                      List : replication of a linkedlist . it has descrete memory block
+
+//#include <iostream>
+//#include<list>
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int list_fun()
+{
+    list<int>l;  
+    
+    l.push_back(10);
+    l.push_back(20);
+    l.push_front(30);
+    
+    // list<int>:: iterator it= l.begin();    //  We initilizes iterator as global
+    
+    for(list<int>:: iterator it= l.begin();it != l.end();it++)
+    {
+        cout<<*it<<" ";
+    }
+    cout<<"\n";
+    
+    l.push_front(120);
+    l.pop_back();
+    l.pop_front();
+    
+    
+     for(list<int>:: iterator it= l.begin();it != l.end();it++)
+    {
+        cout<<*it<<" ";
+    }
+    
+    cout<<"\n"<<l.empty();   // Check whether list is empty or not
+
+    
+  //  cout<<"\nReverse order : "<<l.reverse();   //  these are parametrize function
+  //  cout<<"\nSort the list element : "<<l.sort();
+    
+    
+}
+
+int main()
+{
+    list_fun();
+
+    return 0;
+}
