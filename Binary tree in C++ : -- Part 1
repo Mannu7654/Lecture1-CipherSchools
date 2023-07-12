@@ -1,0 +1,57 @@
+//   Map :--  It are key and value pairs. 
+//        Types: -- 1. Ordered Map      2. Unordered Map
+
+//  Unordered Map : It is implemented using Hash table. It is using to count the frequency and searching process.
+//                 All operation takes O(1) times. like, insert delete search
+
+//      Ex : ---  https://leetcode.com/problems/linked-list-cycle/
+
+//  Ordered map takes O(log n) times.
+
+
+
+#include <iostream>
+#include<vector>
+// #include<bits/stdc++.h>
+
+using namespace std;
+
+int Vector_fun()
+{
+    vector<string> solar_sys= {"mer","venus","earth","mars","jupiter","saturn","uranus","naptun"};
+    vector<string> :: iterator mannu =solar_sys.begin();
+    vector<string>:: iterator pratyush =solar_sys.begin();
+
+
+    advance(mannu,3);  //  It incrementing iterator. Increment current index to passing index.
+                      //  It also updated the values of first index. like, now the value of Mannu ==>> mars
+                     //   It having used the negative values.
+    
+    cout<<* next(mannu,1)<<endl;   //  It having no used negative values
+    cout<<"Distance from mannu "<<distance(pratyush,mannu)<<endl;
+
+    cout<<*mannu<<endl;
+    cout<<"let's go to earth "<<*(mannu + 2)<<endl;
+
+}
+
+
+int iteration_fun()
+{
+    vector<int> v={1,2,3,4,5,6,7,8,9};
+    
+    for(vector<int> :: iterator it =v.begin();it != v.end();it++)
+    {
+        cout<<*it<<" ";
+    }
+
+}
+
+int main()
+{
+    Vector_fun();
+    
+    iteration_fun();
+
+    return 0;
+}
