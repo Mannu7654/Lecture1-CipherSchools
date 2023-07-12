@@ -1,0 +1,44 @@
+//                                                              Iterator and Iteration
+
+#include <iostream>
+#include<vector>
+// #include<bits/stdc++.h>
+
+using namespace std;
+
+int Vector_fun()
+{
+    vector<string> solar_sys= {"mer","venus","earth","mars","jupiter","saturn","uranus","naptun"};
+    vector<string> :: iterator mannu =solar_sys.begin();
+    vector<string>:: iterator pratyush =solar_sys.begin();
+
+
+    advance(mannu,3);
+
+    cout<<"Distance from mannu "<<distance(pratyush,mannu)<<endl;
+
+    cout<<*mannu<<endl;
+    cout<<"let's go to earth "<<*(mannu + 2)<<endl;
+
+}
+
+
+int iteration_fun()
+{
+    vector<int> v={1,2,3,4,5,6,7,8,9};
+    
+    for(vector<int> :: iterator it =v.begin();it != v.end();it++)
+    {
+        cout<<*it<<" ";
+    }
+
+}
+
+int main()
+{
+    Vector_fun();
+    
+    iteration_fun();
+
+    return 0;
+}
