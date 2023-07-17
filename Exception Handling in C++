@@ -1,0 +1,55 @@
+
+//                                      Exception Handling in C++  : --  Try, Catch and Throw block
+
+//  Error :-- Types : -->>  1. Compile Time Error ->> The error find at the time of compilation.
+//                          2. Run Time Error ->> The error find at the running the programme. Our program execute abnormally.
+
+//  Exception handing : -- We do at the time of runtime error.
+//                         To overcome this abnormality, we use try, throw and catch block.
+//                         We can pass one or more catch block in a program.
+//           Syntax :     try{
+//                               throw exception;
+//                          }
+//                          catch(...){ }   //  catch all type of exceptions
+
+//  Runtime error : -- Types ->> 1. Synchronise error :-- man made and taken care by man themself. ex-- stack over flow
+//                               2. Asynchronise error : -- 
+
+// Rethrowing Exception : -- It is possible in case of nested try-catch block.
+//                           Exception throw from inner cstch block to outer catch block.
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int a=10;
+	int b=0;
+	
+	try{           //  rethrowing exception 
+	
+	try{
+		if(b==0)throw 'a';
+		
+		// unsure logic or code here
+		cout<<a/b<<endl;
+	}
+	catch(...)       //  It must be last catch block
+	{
+		// alternative code or logic.!
+		cout<<" thrown from the try block.!"<<endl;
+		throw;
+	}
+  }
+  catch(...){
+  	cout<<"Catched"<<endl;
+  }
+//	catch(char err){
+//		cout<<err<<" thrown from the try block.!"<<endl;
+//	}
+	
+	cout<<"Program ended normally"<<endl;
+	
+	return 0;
+}
