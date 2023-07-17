@@ -1,0 +1,72 @@
+//                        Graphs in C++ :  Depth First Search [DFS]
+
+//  Graph : --  It is a non-linear data structure.
+//              Example: --  social media website
+//              It is similar to tree but it has posibility of cycle
+
+// Every tree is graph but every graph is not tree.
+// Every node :-- vertex,  degree of a node: --  the no of edges either it is in or out towards nodes.
+//  It having no necesity to every node is connected to each other.
+
+//  Implementing graph :--  1. Matrix   
+//                          2. List
+//  In matrix implementation, we can make 2-D matrix
+//  vector<vector<int>>g(n);   --  it create a 1-D array of size n
+
+//   Traversing of graph: --  1. DFS  -->> Depth First Search
+//                            2. BFS  -->> Beadth First Search
+
+
+
+//    Undirected Graph
+
+#include<bits/stdc++.h>
+using namespace std;
+
+//   DFS implemetation
+void dfs(vector<vector<int>>&g, int s,int v,vector<bool>&visited){
+	visited[s]=1;
+	cout<<s<<" ";
+	
+	for(int i=0;i<v;i++){
+		if(!visited[i] && g[s][i] == 1){
+			dfs(g,i,v,visited);
+		}
+	}
+	
+	return;
+}
+
+//  print the nodes
+void print(vector<vector<int>>&g,int v){
+	vector<bool>visited(v,0);
+	
+	for(int i=0;i<v;i++){
+		if(!visited[i]){
+			dfs(g,i,v,visited);
+			cout<<endl;
+		}
+	}
+	
+	return;
+}
+
+
+int main(){
+	int v,e;   // v-> vertices e-> edges
+	cin>>v>>e;
+	
+	vector<vector<int>>g(v,vector<int>(v.0));
+	
+	for(int i=0;i<e;i++)
+	{
+		int f,s;   //  adjecent vertices 
+		cin>>f>>s;
+		
+		g[f][s]=1;
+		g[s][f]=1;
+	}
+	
+	print(g,v);
+	return 0;
+}
