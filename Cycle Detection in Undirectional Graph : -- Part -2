@@ -1,0 +1,59 @@
+//                      Cycle Detection in Unidirectional Graph  : -- Part 2
+
+//    Question : -- to check the path between any two nodes.
+
+// Flood Fill algorithms :-- Solve this in LeetCode  [ Link : -- https://leetcode.com/problems/flood-fill/solutions/3032537/dfs-method-c/ ]
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+bool have_path(vector<vector<int>>&g,int src,int des,int v, vector<bool>&vis){
+	vis[src] =1;
+	
+	if(src == des)return 1;
+	
+	for(int i=0;i<v;i++){
+		if(!vis[i] && g[src][i]){
+			if(have_path(g,i,des,v,vis))return 1;
+		}
+	}
+	
+	return 0;
+}
+
+void operate(vector<vector<int>>&g, int v){
+	vector<bool>vis(v,0);
+	
+	int s,d;
+	cin>>s>>d;
+	
+	if(have_path(g,s,d,v,vis)){
+		cout<<s<<" and"<<d<<" have path between them. "<<endl;
+	}
+	else
+	{
+		cout<<s<<" and"<<d<<" have not path between them. "<<endl;
+	}
+	
+	return;
+}
+
+int main(){
+	int v,e;   // v-> vertices e-> edges
+	cin>>v>>e;
+	
+	vector<vector<int>>g(v,vector<int>(v.0));
+	
+	for(int i=0;i<e;i++)
+	{
+		int f,s;   //  adjecent vertices f-> first node s-> source nodes
+		cin>>f>>s;
+		
+		g[f][s]=1;
+		g[s][f]=1;
+	}
+	
+	operate(g,v);
+	return 0;
+}
